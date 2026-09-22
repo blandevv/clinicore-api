@@ -17,7 +17,7 @@ class AppSettings(BaseModel):
         secure, and scalable, making it suitable for use in healthcare applications.
     """
     version: str = "0.1.0"
-    env: Literal["development", "production"] = "development"
+    env: Literal["development", "testing", "production"] = "development"
     debug: bool = False
 
 
