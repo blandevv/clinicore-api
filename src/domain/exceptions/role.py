@@ -12,10 +12,7 @@ class RoleNotFoundError(DomainError):
 
     def __init__(self, role_id: UUID) -> None:
         """Initialize the error with the missing role's ID."""
-        super().__init__(
-            detail_key="role_not_found",
-            context={"role_id": str(role_id)},
-        )
+        super().__init__(context={"role_id": str(role_id)})
 
 
 class RoleAlreadyExistsError(DomainError):
@@ -25,10 +22,7 @@ class RoleAlreadyExistsError(DomainError):
 
     def __init__(self, role_name: str) -> None:
         """Initialize the error with the existing role's name."""
-        super().__init__(
-            detail_key="role_already_exists",
-            context={"role_name": role_name},
-        )
+        super().__init__(context={"role_name": role_name})
 
 
 class RoleAlreadyDeletedError(DomainError):
@@ -38,7 +32,4 @@ class RoleAlreadyDeletedError(DomainError):
 
     def __init__(self, role_id: UUID) -> None:
         """Initialize the error with the deleted role's ID."""
-        super().__init__(
-            detail_key="role_already_deleted",
-            context={"role_id": str(role_id)},
-        )
+        super().__init__(context={"role_id": str(role_id)})
